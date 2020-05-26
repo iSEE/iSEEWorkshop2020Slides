@@ -16,15 +16,30 @@ output:
 # knit: pagedown::chrome_print
 ---
 
-```{r htmltools}
+layout: true
+
+<div class="my-header"><img src="img/stickers/iSEE.png" alt="OxfordiSEE logo" align="right" height="90%"></div>
+
+<div class="my-footer"><span>
+iSEE Workshop 2020
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+interactive SummarizedExperiment Explorer
+</span></div>
+
+```{r setup, include=FALSE}
+stopifnot(require(iSEE))
+stopifnot(require(htmltools))
+stopifnot(require(RefManageR))
+stopifnot(require(knitr))
+```
+
+```{r htmltools, include=FALSE}
 stopifnot(requireNamespace("htmltools"))
 htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 ```
 
-
 ```{r, load_refs, include=FALSE, cache=FALSE}
 options(htmltools.dir.version = FALSE)
-library(RefManageR)
 BibOptions(
   check.entries = FALSE,
   bib.style = "authoryear",
@@ -35,16 +50,6 @@ BibOptions(
   dashed = TRUE)
 bib <- ReadBib("references.bib")
 ```
-
-layout: true
-
-<div class="my-header"><img src="img/stickers/iSEE.png" alt="OxfordiSEE logo" align="right" height="90%"></div>
-
-<div class="my-footer"><span>
-iSEE Workshop 2020
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-interactive SummarizedExperiment Explorer
-</span></div>
 
 ---
 
@@ -66,6 +71,10 @@ interactive SummarizedExperiment Explorer
 <td align='center' width="25%">Aaron</td>
 </tr>
 </table>
+
+```{r, include=FALSE}
+NoCite(bib, "rue2018isee")
+```
 
 ???
 
@@ -183,7 +192,7 @@ Downstream analyses:
 
 ---
 
-# Reinventing the wheel
+# Warning: Reinventing the wheel
 
 ```{r, fig.align='center', out.width='50%', echo=FALSE}
 knitr::include_graphics("img/misc/batman-robin.png")
@@ -274,3 +283,99 @@ iSEE won the RStudio Shiny Contest in April 2019 with mention for "Most technica
 In particular:
 
 - There were 136 submissions from 122 unique app developers!
+
+---
+
+# Creating an ExperimentColorMap
+
+```{r}
+qc_color_fun <- function(n){
+    qc_colors <- c("forestgreen", "firebrick1")
+    names(qc_colors) <- c("Y", "N")
+    qc_colors
+}
+```
+
+```{r}
+ecm <- ExperimentColorMap(
+    assays = list(counts = viridis::viridis, logcounts = viridis::viridis),
+    colData = list(passes_qc_checks_s = qc_color_fun),
+    all_continuous = list(assays = viridis::plasma),
+    global_continuous = viridis::viridis
+)
+```
+
+---
+
+# Using an ExperimentColorMap
+
+```{r}
+colDataColorMap(ecm, "passes_qc_checks_s", discrete=TRUE)
+```
+
+---
+
+# How iSEE uses the ExperimentColorMap
+
+.small-code[
+```{r, eval=FALSE}
+red.dim <- reducedDim(se, "PCA");
+plot.data <- data.frame(X=red.dim[, 1], Y=red.dim[, 2], row.names=colnames(se));
+
+plot.data$ColorBy <- colData(se)[, "driver_1_s"];
+plot.data[["ColorBy"]] <- factor(plot.data[["ColorBy"]]);
+
+# Avoid visual biases from default ordering by shuffling the points
+set.seed(379);
+plot.data <- plot.data[sample(nrow(plot.data)),,drop=FALSE];
+
+dot.plot <- ggplot() +
+    geom_point(aes(x=X, y=Y, color=ColorBy), alpha=1, plot.data, size=1) +
+    labs(x="Dimension 1", y="Dimension 2", color="driver_1_s", title="PCA") +
+    coord_cartesian(xlim=range(plot.data$X, na.rm=TRUE),
+        ylim=range(plot.data$Y, na.rm=TRUE), expand=TRUE) +
+    scale_color_manual(values=colDataColorMap(colormap, "driver_1_s", discrete=TRUE)(3), na.value='grey50', drop=FALSE) +
+    scale_fill_manual(values=colDataColorMap(colormap, "driver_1_s", discrete=TRUE)(3), na.value='grey50', drop=FALSE) +
+    theme_bw() +
+    theme(legend.position='bottom', legend.box='vertical', legend.text=element_text(size=9),
+          legend.title=element_text(size=11), axis.text=element_text(size=10),
+          axis.title=element_text(size=12), title=element_text(size=12))
+```
+]
+
+---
+
+# The iSEE-verse
+
+* http://bioconductor.org/packages/iSEE/
+
+* <i class="fab fa-github"></i> [iSEE](https://github.com/iSEE) organization
+  + <i class="fab fa-github"></i> [iSEE/iSEE2018](https://github.com/iSEE/iSEE2018) manuscript
+  + <i class="fab fa-github"></i> [iSEE/iSEE](https://github.com/iSEE/iSEE) source code
+  + <i class="fab fa-github"></i> [iSEE/iSEE_custom](https://github.com/iSEE/iSEE_custom) example of custom panels
+  + <i class="fab fa-github"></i> [iSEE/iSEE_instances](https://github.com/iSEE/iSEE_instances) gallery of complete analyses on public data
+  + <i class="fab fa-github"></i> [iSEE/iSEEWorkshop2019](https://github.com/iSEE/iSEEWorkshop2019) workshop at the Bioconductor 2019 conference
+
+???
+
+The growing funtionality of the iSEE package is demonstrated in various places:
+
+- The Bioconductor website is the primary source of information for the latest release and development package versions.
+- The package GitHub repository is the place to monitor the latest developments, open issues, and contribute pull requests (consider the Bioconductor support website for general questions)
+- kevinrue/iSEE_custom demonstrates the development of custom panels through a gallery of examples
+- federicomarini/iSEE_instances demonstrates the integration of iSEE with entire analyses of publicly available datasets through a gallery of examples
+- Finally, the iSEE workshop was written for the Bioconductor conference 2019 to showcase the functionality of the iSEE package for both newcomers and experienced R users.
+
+---
+
+# References
+
+.small-p[
+```{r, include=TRUE, echo=FALSE, results="asis"}
+PrintBibliography(bib)
+```
+]
+
+
+<!-- F1000 Twitter teaser -->
+<!-- {{< video library="1" src="iSEE/twitter-F1000.mp4" controls="yes" >}} -->

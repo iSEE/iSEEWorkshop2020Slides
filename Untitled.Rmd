@@ -69,7 +69,11 @@ This was a team effort!
 
 # Designed for Bioconductor
 
-<p align='center'><a href="https://bioconductor.org"><img src="img/biocstickers.jpg" height='500px'></a></p>
+```{r, fig.align='center', out.width='75%',  echo=FALSE}
+knitr::include_graphics("img/biocstickers.jpg")
+```
+
+<https://bioconductor.org>
 
 ???
 
@@ -125,10 +129,48 @@ See commit #3 at https://github.com/csoneson/iSEE/tree/021e3e20cfdb194e511f8097e
 knitr::include_graphics("img/OSCA/bioc-figures_v2-02.png")
 ```
 
-
 `r Citet(bib, "amezquita2020osca")`
 
 ???
 
 iSEE focuses on the SingleCellExperiment class.
 This class stores all the data and metadata associated with assays, cells, and features.
+
+---
+
+# Usage in a workflow
+
+.pull-left[
+- Add
+
+- Points
+
+- Here
+]
+
+.pull-right[
+```{r, fig.align='center', echo=FALSE}
+knitr::include_graphics("img/OSCA/bioc-figures_v2-03.png")
+```
+
+.right[
+`r Citet(bib, "amezquita2020osca")`
+]
+]
+
+???
+
+<!-- 
+The SingleCellExperiment class is designed to accomodate all the information produced along a typical single-cell analysis workflow.
+Those data include raw data:
+- raw assay data
+- experimental metadata
+Processed data:
+- quality control metrics
+- normalized data
+- dimensionality reduction results
+Downstream analyses:
+- cluster labels
+- differential expression results
+- downstream cell and feature annotations
+-->

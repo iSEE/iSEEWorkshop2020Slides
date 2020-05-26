@@ -16,6 +16,20 @@ output:
 # knit: pagedown::chrome_print
 ---
 
+```{r, load_refs, include=FALSE, cache=FALSE}
+options(htmltools.dir.version = FALSE)
+library(RefManageR)
+BibOptions(
+  check.entries = FALSE,
+  bib.style = "authoryear",
+  cite.style = "authoryear",
+  max.names = 2,
+  style = "markdown",
+  hyperlink = "to.doc",
+  dashed = TRUE)
+bib <- ReadBib("references.bib")
+```
+
 layout: true
 
 <div class="my-header"><img src="https://raw.githubusercontent.com/Bioconductor/BiocStickers/master/iSEE/iSEE.png" alt="OxfordiSEE logo" align="right" height="90%"></div>
@@ -24,7 +38,7 @@ layout: true
 iSEE Workshop 2020
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 interactive SummarizedExperiment Explorer
-</span></div> 
+</span></div>
 
 ---
 
@@ -46,3 +60,75 @@ interactive SummarizedExperiment Explorer
 <td align='center' width="25%">Aaron</td>
 </tr>
 </table>
+
+???
+
+This was a team effort!
+
+---
+
+# Designed for Bioconductor
+
+<p align='center'><a href="https://bioconductor.org"><img src="img/biocstickers.jpg" height='500px'></a></p>
+
+???
+
+iSEE tightly integrates with other packages of the Bioconductor project.
+
+---
+
+# Original wishlist (1 / 2)
+
+- An interactive user interface for exploring data in `r BiocStyle::Biocpkg("SummarizedExperiment")`
+
+- Particular focus given to single-cell data in the `r BiocStyle::Biocpkg("SingleCellExperiment")` derived class
+
+- Sample-oriented visualizations (e.g., patients, cells)
+
+- Feature-oriented visualizations (e.g., genes, protein, metabolites, loci, variants)
+
+- Heatmaps (cells _and_ features)
+
+- Selectable points
+
+???
+
+When we sat down at EuroBioc2017, we drafted a wishlist of features.
+See commit #3 at https://github.com/csoneson/iSEE/tree/021e3e20cfdb194e511f8097ed544329bd46bcd6
+
+---
+
+# Original wishlist (2 / 2)
+
+- Colouring of samples by metadata or assayed values
+
+- Stratify axes and facets by metadata (e.g., violin plots)
+
+- Hover and click
+
+- Zoom
+
+- Transmission of points selections between plots
+
+- Code tracking for reproducibility and batch generation of figures
+
+???
+
+When we sat down at EuroBioc2017, we drafted a wishlist of features.
+See commit #3 at https://github.com/csoneson/iSEE/tree/021e3e20cfdb194e511f8097ed544329bd46bcd6
+
+---
+
+# SingleCellExperiment
+
+```{r, fig.align='center', out.height='400px', echo=FALSE}
+knitr::include_graphics("img/OSCA/bioc-figures_v2-02.png")
+```
+
+
+`r Citet(bib, "amezquita2020osca")`
+
+???
+
+iSEE focuses on the SingleCellExperiment class.
+This class stores all the data and metadata associated with assays, cells, and features.

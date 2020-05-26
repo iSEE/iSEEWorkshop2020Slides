@@ -16,6 +16,12 @@ output:
 # knit: pagedown::chrome_print
 ---
 
+```{r htmltools}
+stopifnot(requireNamespace("htmltools"))
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+```
+
+
 ```{r, load_refs, include=FALSE, cache=FALSE}
 options(htmltools.dir.version = FALSE)
 library(RefManageR)
@@ -32,7 +38,7 @@ bib <- ReadBib("references.bib")
 
 layout: true
 
-<div class="my-header"><img src="https://raw.githubusercontent.com/Bioconductor/BiocStickers/master/iSEE/iSEE.png" alt="OxfordiSEE logo" align="right" height="90%"></div>
+<div class="my-header"><img src="img/stickers/iSEE.png" alt="OxfordiSEE logo" align="right" height="90%"></div>
 
 <div class="my-footer"><span>
 iSEE Workshop 2020
@@ -48,10 +54,10 @@ interactive SummarizedExperiment Explorer
 
 <table>
 <tr>
-<td width="25%"><a href="https://kevinrue.github.io"><img src="img/kevin-rue.jpg"></a></td>
-<td width="25%"><a href="https://csoneson.github.io"><img src="img/charlotte-soneson.png"></a></td>
-<td width="25%"><a href="https://federicomarini.github.io"><img src="img/federico-marini.png"></a></td>
-<td width="25%"><a href="https://orcid.org/0000-0002-3564-4813"><img src="img/aaron-lun.png"></a></td>
+<td width="25%"><a href="https://kevinrue.github.io"><img src="img/people/kevin-rue.jpg"></a></td>
+<td width="25%"><a href="https://csoneson.github.io"><img src="img/people/charlotte-soneson.png"></a></td>
+<td width="25%"><a href="https://federicomarini.github.io"><img src="img/people/federico-marini.png"></a></td>
+<td width="25%"><a href="https://orcid.org/0000-0002-3564-4813"><img src="img/people/aaron-lun.png"></a></td>
 </tr>
 <tr>
 <td align='center' width="25%">Kevin</td>
@@ -70,7 +76,7 @@ This was a team effort!
 # Designed for Bioconductor
 
 ```{r, fig.align='center', out.width='75%',  echo=FALSE}
-knitr::include_graphics("img/biocstickers.jpg")
+knitr::include_graphics("img/stickers/biocstickers.jpg")
 ```
 
 <https://bioconductor.org>
@@ -160,9 +166,10 @@ knitr::include_graphics("img/OSCA/bioc-figures_v2-03.png")
 
 ???
 
-<!-- 
 The SingleCellExperiment class is designed to accomodate all the information produced along a typical single-cell analysis workflow.
+
 Those data include raw data:
+
 - raw assay data
 - experimental metadata
 Processed data:
@@ -173,4 +180,50 @@ Downstream analyses:
 - cluster labels
 - differential expression results
 - downstream cell and feature annotations
--->
+
+---
+
+# Reinventing the wheel
+
+```{r, fig.align='center', out.width='50%', echo=FALSE}
+knitr::include_graphics("img/misc/batman-robin.png")
+```
+
+See also: <i class="fab fa-github"></i> [federicomarini/awesome-expression-browser](https://github.com/federicomarini/awesome-expression-browser)
+
+???
+
+Don't try this at home.
+
+The wealth of information produced by single-cell analysis workflows has motivated the development of many interactive applications to help researchers explore their data sets.
+Each of those applications has its own strengths and limitations.
+It is very tempting to develop new applications to with their own strengths and limitations.
+Before you decide to do so, we encourage you to test iSEE.
+You may find that it already does everything you would like!
+
+---
+
+# Interfacing with SingleCellExperiment
+
+```{r, fig.align='center', out.width='60%', echo=FALSE}
+knitr::include_graphics("img/OSCA/OSCA-figure-4.png")
+```
+
+`r Citet(bib, "amezquita2020osca")`
+
+???
+
+Here we demonstrate how iSEE dissects SCE objects to produce figures.
+
+---
+
+# The iSEE interface
+
+```{r, fig.align='center', out.width='100%', echo=FALSE}
+knitr::include_graphics("https://raw.githubusercontent.com/kevinrue/iSEEWorkshop2019/master/inst/vignettes/img/iSEEinterface.png")
+```
+
+???
+
+iSEE provides a powerful yet flexible user interface that includes 8 predefined panel types.
+That said, it also gives the freedom to define any number custom panel types, both plots and tables.

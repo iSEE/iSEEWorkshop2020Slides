@@ -13,7 +13,7 @@ output:
       highlightLines: true
       countIncrementalSlides: false
 # uncomment this line to produce HTML and PDF in RStudio:
-knit: pagedown::chrome_print
+# knit: pagedown::chrome_print
 ---
 
 layout: true
@@ -28,3 +28,21 @@ interactive SummarizedExperiment Explorer
 
 ---
 
+# The team
+
+<br/>
+
+<table>
+<tr>
+<td width="25%"><a href="https://kevinrue.github.io"><img src="img/kevin-rue.jpg"></a></td>
+<td width="25%"><a href="https://csoneson.github.io"><img src="img/charlotte-soneson.png"></a></td>
+<td width="25%"><a href="https://federicomarini.github.io"><img src="img/federico-marini.png"></a></td>
+<td width="25%"><a href="https://orcid.org/0000-0002-3564-4813"><img src="img/aaron-lun.png"></a></td>
+</tr>
+<tr>
+<td align='center' width="25%">Kevin</td>
+<td align='center' width="25%">Charlotte</td>
+<td align='center' width="25%">Federico</td>
+<td align='center' width="25%">Aaron</td>
+</tr>
+</table>

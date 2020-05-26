@@ -1,7 +1,7 @@
 ---
-title: 'iSEE workshop'
+title: 'iSEE workshop - package and functionality'
 subtitle: 'Edition 2020'
-author: 'Charlotte Soneson, Kevin Rue-Albrecht, Federico Marini'
+author: '[Charlotte Soneson](https://csoneson.github.io), [Kevin Rue-Albrecht](https://kevinrue.github.io), [Federico Marini](https://federicomarini.github.io/)'
 institute: ''
 date: '2020-06-08 (updated: `r Sys.Date()`)'
 output:
@@ -16,4 +16,15 @@ output:
 knit: pagedown::chrome_print
 ---
 
-# Hello world!
+layout: true
+
+<div class="my-header"><img src="https://raw.githubusercontent.com/Bioconductor/BiocStickers/master/iSEE/iSEE.png" alt="OxfordiSEE logo" align="right" height="90%"></div>
+
+<div class="my-footer"><span>
+iSEE Workshop 2020
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+interactive SummarizedExperiment Explorer
+</span></div> 
+
+---
+

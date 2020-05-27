@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>iSEE workshop - package and functionality</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Charlotte Soneson, Kevin Rue-Albrecht, Federico Marini" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/rladies-fonts.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link rel="stylesheet" href="my-theme.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# iSEE workshop - package and functionality
+## Edition 2020
+### <a href="https://csoneson.github.io">Charlotte Soneson</a>, <a href="https://kevinrue.github.io">Kevin Rue-Albrecht</a>, <a href="https://federicomarini.github.io/">Federico Marini</a>
+### 2020-06-08 (updated: 2020-05-27)
+
+---
+
+
+layout: true
+
+&lt;div class="my-header"&gt;&lt;img src="img/stickers/iSEE.png" alt="OxfordiSEE logo" align="right" height="90%"&gt;&lt;/div&gt;
+
+&lt;div class="my-footer"&gt;&lt;span&gt;
+iSEE Workshop 2020
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+interactive SummarizedExperiment Explorer
+&lt;/span&gt;&lt;/div&gt;
+
+
+
+
+
+
+
+---
+
+# The team
+
+&lt;br/&gt;
+
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td width="25%"&gt;&lt;a href="https://kevinrue.github.io"&gt;&lt;img src="img/people/kevin-rue.jpg"&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td width="25%"&gt;&lt;a href="https://csoneson.github.io"&gt;&lt;img src="img/people/charlotte-soneson.png"&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td width="25%"&gt;&lt;a href="https://federicomarini.github.io"&gt;&lt;img src="img/people/federico-marini.png"&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td width="25%"&gt;&lt;a href="https://orcid.org/0000-0002-3564-4813"&gt;&lt;img src="img/people/aaron-lun.png"&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align='center' width="25%"&gt;Kevin&lt;/td&gt;
+&lt;td align='center' width="25%"&gt;Charlotte&lt;/td&gt;
+&lt;td align='center' width="25%"&gt;Federico&lt;/td&gt;
+&lt;td align='center' width="25%"&gt;Aaron&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+
+
+???
+
+This was a team effort!
+
+---
+
+# Designed for Bioconductor
+
+&lt;img src="img/stickers/biocstickers.jpg" width="75%" style="display: block; margin: auto;" /&gt;
+
+&lt;https://bioconductor.org&gt;
+
+???
+
+iSEE tightly integrates with other packages of the Bioconductor project.
+
+---
+
+# Original wishlist (1 / 2)
+
+- An interactive user interface for exploring data in *[SummarizedExperiment](https://bioconductor.org/packages/3.11/SummarizedExperiment)*
+
+- Particular focus given to single-cell data in the *[SingleCellExperiment](https://bioconductor.org/packages/3.11/SingleCellExperiment)* derived class
+
+- Sample-oriented visualizations (e.g., patients, cells)
+
+- Feature-oriented visualizations (e.g., genes, protein, metabolites, loci, variants)
+
+- Heatmaps (cells _and_ features)
+
+- Selectable points
+
+???
+
+When we sat down at EuroBioc2017, we drafted a wishlist of features.
+See commit #3 at https://github.com/csoneson/iSEE/tree/021e3e20cfdb194e511f8097ed544329bd46bcd6
+
+---
+
+# Original wishlist (2 / 2)
+
+- Colouring of samples by metadata or assayed values
+
+- Stratify axes and facets by metadata (e.g., violin plots)
+
+- Hover and click
+
+- Zoom
+
+- Transmission of points selections between plots
+
+- Code tracking for reproducibility and batch generation of figures
+
+???
+
+When we sat down at EuroBioc2017, we drafted a wishlist of features.
+See commit #3 at https://github.com/csoneson/iSEE/tree/021e3e20cfdb194e511f8097ed544329bd46bcd6
+
+---
+
+# SingleCellExperiment
+
+&lt;img src="img/OSCA/bioc-figures_v2-02.png" width="1412" height="400px" style="display: block; margin: auto;" /&gt;
+
+&lt;a name=cite-amezquita2020osca&gt;&lt;/a&gt;[Amezquita, Lun, Becht, Carey, Carpp, Geistlinger, Marini, Rue-Albrecht, Risso, Soneson, Waldron, Pages, Smith, Huber, Morgan, Gottardo, and Hicks (2020)](https://www.ncbi.nlm.nih.gov/pubmed/31792435)
+
+???
+
+iSEE focuses on the SingleCellExperiment class.
+This class stores all the data and metadata associated with assays, cells, and features.
+
+---
+
+# Usage in a workflow
+
+.pull-left[
+- Add
+
+- Points
+
+- Here
+]
+
+.pull-right[
+&lt;img src="img/OSCA/bioc-figures_v2-03.png" width="1960" style="display: block; margin: auto;" /&gt;
+
+.right[
+[Amezquita Lun, et al. (2020)](https://www.ncbi.nlm.nih.gov/pubmed/31792435)
+]
+]
+
+???
+
+The SingleCellExperiment class is designed to accomodate all the information produced along a typical single-cell analysis workflow.
+
+Those data include raw data:
+
+- raw assay data
+- experimental metadata
+Processed data:
+- quality control metrics
+- normalized data
+- dimensionality reduction results
+Downstream analyses:
+- cluster labels
+- differential expression results
+- downstream cell and feature annotations
+
+---
+
+# Warning: Reinventing the wheel
+
+&lt;img src="img/misc/batman-robin.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+See also: &lt;i class="fab fa-github"&gt;&lt;/i&gt; [federicomarini/awesome-expression-browser](https://github.com/federicomarini/awesome-expression-browser)
+
+???
+
+Don't try this at home.
+
+The wealth of information produced by single-cell analysis workflows has motivated the development of many interactive applications to help researchers explore their data sets.
+Each of those applications has its own strengths and limitations.
+It is very tempting to develop new applications to with their own strengths and limitations.
+Before you decide to do so, we encourage you to test iSEE.
+You may find that it already does everything you would like!
+
+---
+
+# Interfacing with SingleCellExperiment
+
+&lt;img src="img/OSCA/OSCA-figure-4.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+[Amezquita Lun, et al. (2020)](https://www.ncbi.nlm.nih.gov/pubmed/31792435)
+
+???
+
+Here we demonstrate how iSEE dissects SCE objects to produce figures.
+
+---
+
+# The iSEE interface
+
+&lt;img src="https://raw.githubusercontent.com/kevinrue/iSEEWorkshop2019/master/inst/vignettes/img/iSEEinterface.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+???
+
+iSEE provides a powerful yet flexible user interface that includes 8 predefined panel types.
+That said, it also gives the freedom to define any number custom panel types, both plots and tables.
+
+---
+
+# Live demo
+
+&lt;img src="img/misc/workshop.png" width="4000" style="display: block; margin: auto;" /&gt;
+
+Generated by: &lt;i class="fab fa-github"&gt;&lt;/i&gt; [kevinrue/magick-profile](https://github.com/kevinrue/magick-profile)
+
+???
+
+With that introduction to the user interface, let us head into the workshop!
+
+---
+
+# Voice recognition
+
+.center[`iSEE(sce, voice=TRUE)`]
+
+&lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;"&gt;
+  &lt;iframe src="https://www.youtube.com/embed/0crFZLwAJOE?autoplay=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 90%; border:0;" allowfullscreen title="YouTube Video"&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+???
+
+iSEE can be extended using third-party JavaScript libraries.
+Here we demonstrate how speech recognition was integrated to support a number of predefined vocal commands.
+
+---
+
+# Winners of the 1st Rstudio Shiny Contest
+
+&lt;img src="img/misc/shiny-contest.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+Read more: &lt;https://blog.rstudio.com/2019/04/05/first-shiny-contest-winners/&gt;
+
+???
+
+iSEE won the RStudio Shiny Contest in April 2019 with mention for "Most technically impressive".
+
+In particular:
+
+- There were 136 submissions from 122 unique app developers!
+
+---
+
+# Creating an ExperimentColorMap
+
+
+```r
+qc_color_fun &lt;- function(n){
+    qc_colors &lt;- c("forestgreen", "firebrick1")
+    names(qc_colors) &lt;- c("Y", "N")
+    qc_colors
+}
+```
+
+
+```r
+ecm &lt;- ExperimentColorMap(
+    assays = list(counts = viridis::viridis, logcounts = viridis::viridis),
+    colData = list(passes_qc_checks_s = qc_color_fun),
+    all_continuous = list(assays = viridis::plasma),
+    global_continuous = viridis::viridis
+)
+```
+
+---
+
+# Using an ExperimentColorMap
+
+
+```r
+colDataColorMap(ecm, "passes_qc_checks_s", discrete=TRUE)
+```
+
+```
+## function(n){
+##     qc_colors &lt;- c("forestgreen", "firebrick1")
+##     names(qc_colors) &lt;- c("Y", "N")
+##     qc_colors
+## }
+```
+
+---
+
+# How iSEE uses the ExperimentColorMap
+
+.small-code[
+
+```r
+red.dim &lt;- reducedDim(se, "PCA");
+plot.data &lt;- data.frame(X=red.dim[, 1], Y=red.dim[, 2], row.names=colnames(se));
+
+plot.data$ColorBy &lt;- colData(se)[, "driver_1_s"];
+plot.data[["ColorBy"]] &lt;- factor(plot.data[["ColorBy"]]);
+
+# Avoid visual biases from default ordering by shuffling the points
+set.seed(379);
+plot.data &lt;- plot.data[sample(nrow(plot.data)),,drop=FALSE];
+
+dot.plot &lt;- ggplot() +
+    geom_point(aes(x=X, y=Y, color=ColorBy), alpha=1, plot.data, size=1) +
+    labs(x="Dimension 1", y="Dimension 2", color="driver_1_s", title="PCA") +
+    coord_cartesian(xlim=range(plot.data$X, na.rm=TRUE),
+        ylim=range(plot.data$Y, na.rm=TRUE), expand=TRUE) +
+    scale_color_manual(values=colDataColorMap(colormap, "driver_1_s", discrete=TRUE)(3), na.value='grey50', drop=FALSE) +
+    scale_fill_manual(values=colDataColorMap(colormap, "driver_1_s", discrete=TRUE)(3), na.value='grey50', drop=FALSE) +
+    theme_bw() +
+    theme(legend.position='bottom', legend.box='vertical', legend.text=element_text(size=9),
+          legend.title=element_text(size=11), axis.text=element_text(size=10),
+          axis.title=element_text(size=12), title=element_text(size=12))
+```
+]
+
+---
+
+# The iSEE-verse
+
+* http://bioconductor.org/packages/iSEE/
+
+* &lt;i class="fab fa-github"&gt;&lt;/i&gt; [iSEE](https://github.com/iSEE) organization
+  + &lt;i class="fab fa-github"&gt;&lt;/i&gt; [iSEE/iSEE2018](https://github.com/iSEE/iSEE2018) manuscript
+  + &lt;i class="fab fa-github"&gt;&lt;/i&gt; [iSEE/iSEE](https://github.com/iSEE/iSEE) source code
+  + &lt;i class="fab fa-github"&gt;&lt;/i&gt; [iSEE/iSEE_custom](https://github.com/iSEE/iSEE_custom) example of custom panels
+  + &lt;i class="fab fa-github"&gt;&lt;/i&gt; [iSEE/iSEE_instances](https://github.com/iSEE/iSEE_instances) gallery of complete analyses on public data
+  + &lt;i class="fab fa-github"&gt;&lt;/i&gt; [iSEE/iSEEWorkshop2019](https://github.com/iSEE/iSEEWorkshop2019) workshop at the Bioconductor 2019 conference
+
+???
+
+The growing funtionality of the iSEE package is demonstrated in various places:
+
+- The Bioconductor website is the primary source of information for the latest release and development package versions.
+- The package GitHub repository is the place to monitor the latest developments, open issues, and contribute pull requests (consider the Bioconductor support website for general questions)
+- kevinrue/iSEE_custom demonstrates the development of custom panels through a gallery of examples
+- federicomarini/iSEE_instances demonstrates the integration of iSEE with entire analyses of publicly available datasets through a gallery of examples
+- Finally, the iSEE workshop was written for the Bioconductor conference 2019 to showcase the functionality of the iSEE package for both newcomers and experienced R users.
+
+---
+
+# References
+
+.small-p[
+&lt;a name=bib-amezquita2020osca&gt;&lt;/a&gt;[Amezquita, R. A, A. T. L. Lun, et
+al.](#cite-amezquita2020osca) (2020). "Orchestrating single-cell
+analysis with Bioconductor". In: _Nat Methods_ 17.2, pp. 137-145. ISSN:
+1548-7105 (Electronic) 1548-7091 (Linking). DOI:
+[10.1038/s41592-019-0654-x](https://doi.org/10.1038%2Fs41592-019-0654-x).
+URL:
+[https://www.ncbi.nlm.nih.gov/pubmed/31792435](https://www.ncbi.nlm.nih.gov/pubmed/31792435).
+
+&lt;a name=bib-rue2018isee&gt;&lt;/a&gt;[Rue-Albrecht, K, F. Marini, et
+al.](#cite-rue2018isee) (2018). "iSEE: Interactive SummarizedExperiment
+Explorer". In: _F1000Res_ 7, p. 741. ISSN: 2046-1402 (Print) 2046-1402
+(Linking). DOI:
+[10.12688/f1000research.14966.1](https://doi.org/10.12688%2Ff1000research.14966.1).
+URL:
+[https://www.ncbi.nlm.nih.gov/pubmed/30002819](https://www.ncbi.nlm.nih.gov/pubmed/30002819).
+]
+
+
+&lt;!-- F1000 Twitter teaser --&gt;
+&lt;!-- {{&lt; video library="1" src="iSEE/twitter-F1000.mp4" controls="yes" &gt;}} --&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

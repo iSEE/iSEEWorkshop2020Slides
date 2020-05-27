@@ -92,7 +92,7 @@ jobs:
           cp -r img libs my-theme.css index.html _site/
 
       - name: Deploy 🚀
-        if: github.event_name == 'schedule' && github.ref == 'refs/heads/master' && matrix.config.os == 'macOS-latest' && matrix.config.r == 'release' && matrix.config.bioc == '3.11'
+        if: github.event_name == 'spush && github.ref == 'refs/heads/master' && matrix.config.os == 'macOS-latest' && matrix.config.r == 'release' && matrix.config.bioc == '3.11'
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}

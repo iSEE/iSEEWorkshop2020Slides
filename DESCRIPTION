@@ -18,4 +18,5 @@ Suggests:
     htmltools,
     knitr,
     RefManageR,
+    viridis,
     xaringan

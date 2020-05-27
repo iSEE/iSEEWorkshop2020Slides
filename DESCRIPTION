@@ -15,5 +15,6 @@ Imports:
     iSEE
 Suggests:
     htmltools,
+    knitr,
     RefManageR,
-    knitr
+    xaringan

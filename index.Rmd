@@ -229,7 +229,8 @@ Here we demonstrate how iSEE dissects SCE objects to produce figures.
 # The iSEE interface
 
 ```{r, fig.align='center', out.width='100%', echo=FALSE}
-knitr::include_graphics("https://raw.githubusercontent.com/kevinrue/iSEEWorkshop2019/master/inst/vignettes/img/iSEEinterface.png")
+knitr::include_graphics("img/screenshots/iSEE_screenshot.png")
+#knitr::include_graphics("https://raw.githubusercontent.com/kevinrue/iSEEWorkshop2019/master/inst/vignettes/img/iSEEinterface.png")
 ```
 
 ???

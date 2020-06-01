@@ -156,11 +156,21 @@ This class stores all the data and metadata associated with assays, cells, and f
 # Usage in a workflow
 
 .pull-left[
-- Add
+- Data import (`DropletUtils`, `tximeta`)
 
-- Points
+- Quality control (`scater`)
 
-- Here
+- Normalization, feature selection (`scran`, `zinbwave`)
+
+- Dimensionality reduction (`BiocSingular`, `scater`, `zinbwave`)
+
+- Clustering (`SC3`, `clustree`)
+
+- Marker gene detection (`scran`, `scDD`)
+
+- Trajectory inference (`slingshot`)
+
+- And much more...
 ]
 
 .pull-right[
@@ -349,13 +359,16 @@ dot.plot <- ggplot() +
 # The iSEE-verse
 
 * http://bioconductor.org/packages/iSEE/
+* http://bioconductor.org/packages/iSEEu/
 
 * <i class="fab fa-github"></i> [iSEE](https://github.com/iSEE) organization
   + <i class="fab fa-github"></i> [iSEE/iSEE2018](https://github.com/iSEE/iSEE2018) manuscript
   + <i class="fab fa-github"></i> [iSEE/iSEE](https://github.com/iSEE/iSEE) source code
+  + <i class="fab fa-github"></i> [iSEE/iSEE-book](https://github.com/iSEE/iSEE-book) repository for the book about extending iSEE
+  + <i class="fab fa-github"></i> [iSEE/iSEEu](https://github.com/iSEE/iSEEu) source code for iSEEu, containing additional panels and modes for iSEE
   + <i class="fab fa-github"></i> [iSEE/iSEE_custom](https://github.com/iSEE/iSEE_custom) example of custom panels
   + <i class="fab fa-github"></i> [iSEE/iSEE_instances](https://github.com/iSEE/iSEE_instances) gallery of complete analyses on public data
-  + <i class="fab fa-github"></i> [iSEE/iSEEWorkshop2019](https://github.com/iSEE/iSEEWorkshop2019) workshop at the Bioconductor 2019 conference
+  + <i class="fab fa-github"></i> [iSEE/iSEEWorkshop2020](https://github.com/iSEE/iSEEWorkshop2020) this workshop, also to be given at the Bioconductor 2020 conference
 
 ???
 

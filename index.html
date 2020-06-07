@@ -18,7 +18,7 @@ class: center, middle, inverse, title-slide
 # iSEE workshop - package and functionality
 ## Edition 2020
 ### <a href="https://csoneson.github.io">Charlotte Soneson</a>, <a href="https://kevinrue.github.io">Kevin Rue-Albrecht</a>, <a href="https://federicomarini.github.io/">Federico Marini</a>
-### 2020-06-08 (updated: 2020-06-01)
+### 2020-06-08 (updated: 2020-06-07)
 
 ---
 
@@ -80,6 +80,68 @@ iSEE tightly integrates with other packages of the Bioconductor project.
 
 ---
 
+# SingleCellExperiment
+
+&lt;img src="img/OSCA/bioc-figures_v2-02.png" width="1412" height="400px" style="display: block; margin: auto;" /&gt;
+
+&lt;a name=cite-amezquita2020osca&gt;&lt;/a&gt;[Amezquita, Lun, Becht, Carey, Carpp, Geistlinger, Marini, Rue-Albrecht, Risso, Soneson, Waldron, Pages, Smith, Huber, Morgan, Gottardo, and Hicks (2020)](https://www.ncbi.nlm.nih.gov/pubmed/31792435)
+
+???
+
+iSEE focuses on the SingleCellExperiment class.
+This class stores all the data and metadata associated with assays, cells, and features.
+
+---
+
+# Usage in a workflow
+
+.pull-left[
+- Data import (`DropletUtils`, `tximeta`)
+
+- Quality control (`scater`)
+
+- Normalization, feature selection (`scran`, `zinbwave`)
+
+- Dimensionality reduction (`BiocSingular`, `scater`, `zinbwave`)
+
+- Clustering (`SC3`, `clustree`)
+
+- Marker gene detection (`scran`, `scDD`)
+
+- Trajectory inference (`slingshot`)
+
+- Visualization (`iSEE`)
+
+- And much more...
+]
+
+.pull-right[
+&lt;img src="img/OSCA/bioc-figures_v2-03.png" width="1960" style="display: block; margin: auto;" /&gt;
+
+.right[
+[Amezquita Lun, et al. (2020)](https://www.ncbi.nlm.nih.gov/pubmed/31792435)
+]
+]
+
+???
+
+The SingleCellExperiment class is designed to accomodate all the information produced along a typical single-cell analysis workflow.
+
+Those data include raw data:
+
+- raw assay data
+- experimental metadata
+Processed data:
+- quality control metrics
+- normalized data
+- dimensionality reduction results
+Downstream analyses:
+- cluster labels
+- differential expression results
+- downstream cell and feature annotations
+
+---
+
 # Original wishlist (1 / 2)
 
 - An interactive user interface for exploring data in *[SummarizedExperiment](https://bioconductor.org/packages/3.11/SummarizedExperiment)*
@@ -122,63 +184,26 @@ See commit #3 at https://github.com/csoneson/iSEE/tree/021e3e20cfdb194e511f8097e
 
 ---
 
-# SingleCellExperiment
+# The iSEE interface
 
-&lt;img src="img/OSCA/bioc-figures_v2-02.png" width="1412" height="400px" style="display: block; margin: auto;" /&gt;
-
-&lt;a name=cite-amezquita2020osca&gt;&lt;/a&gt;[Amezquita, Lun, Becht, Carey, Carpp, Geistlinger, Marini, Rue-Albrecht, Risso, Soneson, Waldron, Pages, Smith, Huber, Morgan, Gottardo, and Hicks (2020)](https://www.ncbi.nlm.nih.gov/pubmed/31792435)
+&lt;img src="img/screenshots/iSEE_screenshot.png" width="100%" style="display: block; margin: auto;" /&gt;
 
 ???
 
-iSEE focuses on the SingleCellExperiment class.
-This class stores all the data and metadata associated with assays, cells, and features.
+iSEE provides a powerful yet flexible user interface that includes 8 predefined panel types.
+That said, it also gives the freedom to define any number custom panel types, both plots and tables.
 
 ---
 
-# Usage in a workflow
+# Interfacing with SingleCellExperiment
 
-.pull-left[
-- Data import (`DropletUtils`, `tximeta`)
+&lt;img src="img/OSCA/OSCA-figure-4.png" width="60%" style="display: block; margin: auto;" /&gt;
 
-- Quality control (`scater`)
-
-- Normalization, feature selection (`scran`, `zinbwave`)
-
-- Dimensionality reduction (`BiocSingular`, `scater`, `zinbwave`)
-
-- Clustering (`SC3`, `clustree`)
-
-- Marker gene detection (`scran`, `scDD`)
-
-- Trajectory inference (`slingshot`)
-
-- And much more...
-]
-
-.pull-right[
-&lt;img src="img/OSCA/bioc-figures_v2-03.png" width="1960" style="display: block; margin: auto;" /&gt;
-
-.right[
 [Amezquita Lun, et al. (2020)](https://www.ncbi.nlm.nih.gov/pubmed/31792435)
-]
-]
 
 ???
 
-The SingleCellExperiment class is designed to accomodate all the information produced along a typical single-cell analysis workflow.
-
-Those data include raw data:
-
-- raw assay data
-- experimental metadata
-Processed data:
-- quality control metrics
-- normalized data
-- dimensionality reduction results
-Downstream analyses:
-- cluster labels
-- differential expression results
-- downstream cell and feature annotations
+Here we demonstrate how iSEE dissects SCE objects to produce figures.
 
 ---
 
@@ -197,29 +222,6 @@ Each of those applications has its own strengths and limitations.
 It is very tempting to develop new applications to with their own strengths and limitations.
 Before you decide to do so, we encourage you to test iSEE.
 You may find that it already does everything you would like!
-
----
-
-# Interfacing with SingleCellExperiment
-
-&lt;img src="img/OSCA/OSCA-figure-4.png" width="60%" style="display: block; margin: auto;" /&gt;
-
-[Amezquita Lun, et al. (2020)](https://www.ncbi.nlm.nih.gov/pubmed/31792435)
-
-???
-
-Here we demonstrate how iSEE dissects SCE objects to produce figures.
-
----
-
-# The iSEE interface
-
-&lt;img src="img/screenshots/iSEE_screenshot.png" width="100%" style="display: block; margin: auto;" /&gt;
-
-???
-
-iSEE provides a powerful yet flexible user interface that includes 8 predefined panel types.
-That said, it also gives the freedom to define any number custom panel types, both plots and tables.
 
 ---
 

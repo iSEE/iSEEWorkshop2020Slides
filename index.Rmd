@@ -254,16 +254,21 @@ You may find that it already does everything you would like!
 
 # Live demo
 
-```{r, fig.align='center', echo=FALSE, out.height='400px'}
+```{r, fig.align='center', echo=FALSE, out.height='300px', out.width='600px'}
 knitr::include_graphics("img/misc/workshop.png")
 ```
 
-```{bash, eval=FALS}
+```{bash, eval=FALSE}
 docker pull iseedevelopers/iseeworkshop2020:latest
 docker run -e PASSWORD=abc -p 8787:8787 iseedevelopers/iseeworkshop2020:latest
 ```
 
 Navigate to <http://localhost:8787/> and sign in with user `rstudio` and password `abc`.
+Open the workshop vignette as follows.
+
+```{r, eval=FALSE}
+vignette('iSEE-lab')
+```
 
 ???
 

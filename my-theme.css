@@ -54,6 +54,15 @@ div.my-footer span {
     color: #c4d931;
 }
 
+h1 {
+    color: #c4d931;
+    background-color: #0092ac;
+}
+
+h2 {
+    color: #1a81c2;
+}
+
 a, a > code {
     color: #18bc9c;
     text-decoration: none;
@@ -71,9 +80,9 @@ p>.fab {
 }
 
 .title-slide>h1 {
-    position: static;
     color: #c4d931;
     background-color: #0092ac;
+    position: static;
     padding-left: 20px;
 }
 

@@ -1,18 +1,34 @@
+/*
+Developed and maintained by Kevin Rue-Albrecht (@kevinrue)
+*/
+
+/*
+#0092ac   blue background
+#00758a   darker blue (active menu)
+#1a81c2   blue titles
+#c4d931   green (on blue)
+#87b13f   green (on white)
+*/
+
 div.my-header {
     position: fixed;
     top: 0px;
     left: 0px;
     height: 80px;
     width: 100%;
+    background-color: #0092ac;
 }
 
 div.my-header img {
     margin-top: 3px;
     margin-right: 3px;
+    border-color: #00758a;
+    border-width: thin;
+    border-style: solid;
 }
 
 div.my-footer {
-    background-color: #002147;
+    background-color: #0092ac;
     position: absolute;
     bottom: 0px;
     left: 0px;
@@ -28,28 +44,50 @@ div.my-footer span {
     bottom: 2px;
 }
 
-.remark-slide-content {
-    background-color: #FAFAFA;
-    border-top: 80px solid white;
-}
-
 .remark-slide-number {
     color: #F7F8FA;
     bottom: 3px;
 }
 
-.title-slide {
-    border-top: 0px;
+.remark-slide-content>h1 {
+    position: fixed;
+    color: #c4d931;
 }
 
-h1 {
-    color: #002147;
-}
-
-.small-code .remark-code {
-    font-size: small;
+a, a > code {
+    color: #18bc9c;
+    text-decoration: none;
 }
 
 .small-p p {
     font-size: small;
+}
+
+p>.fa,
+p>.fas,
+p>.far,
+p>.fab {
+  color: #0092ac;
+}
+
+.title-slide>h1 {
+    position: static;
+    color: #c4d931;
+    background-color: #0092ac;
+    padding-left: 20px;
+}
+
+.title-slide>h2 {
+    color: #1a81c2;
+    padding-left: 20px;
+}
+
+.title-slide>h3 {
+    padding-left: 20px;
+}
+
+hr,.title-slide h2::after,
+.mline h1::after {
+    background-color: #0092ac;
+    color: #0092ac;
 }

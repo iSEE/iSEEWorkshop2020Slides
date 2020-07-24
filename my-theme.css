@@ -72,13 +72,6 @@ a, a > code {
     font-size: small;
 }
 
-p>.fa,
-p>.fas,
-p>.far,
-p>.fab {
-  color: #0092ac;
-}
-
 .title-slide>h1 {
     color: #c4d931;
     background-color: #0092ac;

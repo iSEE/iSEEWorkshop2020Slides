@@ -53,6 +53,16 @@ bib <- ReadBib("references.bib")
 
 ---
 
+# <i class="fas fa-bullhorn"></i> Disclaimer
+
+_This presentation contains slides that some viewers may find disturbing ..._
+
+.right[
+... _or greatly entertaining!_
+]
+
+---
+
 # <i class="fas fa-users"></i> The team
 
 <br/>
@@ -288,9 +298,10 @@ Here we demonstrate how speech recognition was integrated to support a number of
 
 ---
 
-# The iSEE-verse
+# <i class="fas fa-globe-americas"></i> The iSEE-verse
 
 * http://bioconductor.org/packages/iSEE/
+
 * http://bioconductor.org/packages/iSEEu/
 
 * <i class="fab fa-github"></i> [iSEE](https://github.com/iSEE) organization

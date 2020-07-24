@@ -3,7 +3,7 @@ title: 'iSEE workshop - package and functionality'
 subtitle: 'Edition 2020'
 author: '[Charlotte Soneson](https://csoneson.github.io), [Kevin Rue-Albrecht](https://kevinrue.github.io), [Federico Marini](https://federicomarini.github.io/), [Aaron Lun](https://orcid.org/0000-0002-3564-4813/)'
 institute: ''
-date: '2020-06-08 (updated: `r Sys.Date()`)'
+date: '2020-07-28 (updated: `r Sys.Date()`)'
 output:
   xaringan::moon_reader:
     css: [default, metropolis, rladies-fonts, "my-theme.css"]
@@ -50,6 +50,16 @@ BibOptions(
   dashed = TRUE)
 bib <- ReadBib("references.bib")
 ```
+
+---
+
+# <i class="fas fa-bullhorn"></i> Disclaimer
+
+_This presentation contains slides that some viewers may find disturbing ..._
+
+.right[
+... _or greatly entertaining!_
+]
 
 ---
 
@@ -288,9 +298,10 @@ Here we demonstrate how speech recognition was integrated to support a number of
 
 ---
 
-# The iSEE-verse
+# <i class="fas fa-globe-americas"></i> The iSEE-verse
 
 * http://bioconductor.org/packages/iSEE/
+
 * http://bioconductor.org/packages/iSEEu/
 
 * <i class="fab fa-github"></i> [iSEE](https://github.com/iSEE) organization

@@ -19,7 +19,4 @@ Suggests:
     knitr,
     RefManageR,
     viridis,
-    xaringan,
-    xaringanExtra
-Remotes:
-    gadenbuie/xaringanExtra
+    xaringan

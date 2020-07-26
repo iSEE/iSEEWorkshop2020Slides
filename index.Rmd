@@ -51,10 +51,6 @@ BibOptions(
 bib <- ReadBib("references.bib")
 ```
 
-```{r xaringanExtra, include=FALSE}
-xaringanExtra::use_webcam()
-```
-
 ---
 
 # <i class="fas fa-bullhorn"></i> Disclaimer

@@ -53,6 +53,47 @@ bib <- ReadBib("references.bib")
 
 ---
 
+# Structure of the session
+
+.pull-left[
+## Timeline
+
+<i class="far fa-clock"></i>
+This session is 55 minutes.
+
+- Introduction slides
+
+- Cloud workshop setup
+
+- Introduction to the GUI
+
+- Configuring the GUI
+
+- Designing new panels
+]
+
+.pull-right[
+## Interact
+
+<i class="far fa-comment-alt"></i>
+Text chat (in pathable)
+
+<i class="fas fa-chart-bar"></i>
+Polls (in pathable)
+
+<i class="fab fa-slack"></i> Slack [#isee](https://community-bioc.slack.com/archives/C8BJLSP8T)
+
+<i class="fab fa-github-square"></i> Slides [GitHub Pages](https://isee.github.io/iSEEWorkshop2020Slides/#1)
+
+<i class="fab fa-github-square"></i> Workshop vignette [GitHub Pages](https://isee.github.io/iSEEWorkshop2020/articles/iSEE-lab.html)
+
+
+<i class="fab fa-github"></i>
+GitHub [organization](https://github.com/iSEE).
+]
+
+---
+
 # <i class="fas fa-bullhorn"></i> Disclaimer
 
 _This presentation contains slides that some viewers may find disturbing ..._
